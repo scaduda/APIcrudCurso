@@ -1,6 +1,8 @@
 package br.unit.ME_CRUD.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
+
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,28 +11,31 @@ import java.util.Objects;
 @Entity
 public class Curso {
 
+    @ApiModelProperty(value="Código do curso")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @ApiModelProperty(value="Nome do curso")
     @Column(nullable = false)
     private String nome;
+
+    @ApiModelProperty(value="Descrição do curso")
     private String descricao;
+
+    @ApiModelProperty(value="Ementa do curso")
     private String ementa;
+
+    @ApiModelProperty(value="Data de cadastro do curso")
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date data_cadastro;
+
+    @ApiModelProperty(value="Data de cadastro do curso")
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date data_inicio;
-    private float valor;
 
-    public Curso(String nome, String descricao, String ementa, Date data_cadastro, Date data_inicio, float valor){
-        this.nome = nome;
-        this.descricao = descricao;
-        this.ementa = ementa;
-        this.data_cadastro = data_cadastro;
-        this.data_inicio = data_inicio;
-        this.valor = valor;
-    }
+    @ApiModelProperty(value="Preço do curso")
+    private float valor;
 
     public Curso() {
 
